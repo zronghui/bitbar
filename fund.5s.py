@@ -1,6 +1,14 @@
 #!/usr/local/bin/python3
 # -*- coding: utf-8 -*-
 
+import datetime
+import time
+import sys
+
+if datetime.date.today().weekday() > 4:
+    sys.exit()
+if datetime.datetime.now().hour < 9 or datetime.datetime.now().hour >= 15:
+    sys.exit()
 from requests_html import HTMLSession
 
 # https://cncert.github.io/requests-html-doc-cn
