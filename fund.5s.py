@@ -1,13 +1,16 @@
 #!/usr/local/bin/python3
 # -*- coding: utf-8 -*-
-
+"""
+北向资金动态
+"""
 import datetime
 import time
 import sys
 
 if datetime.date.today().weekday() > 4:
     sys.exit()
-if datetime.datetime.now().hour < 9 or datetime.datetime.now().hour >= 15:
+now = datetime.datetime.now()
+if not (9 < now.hour < 15 or (now.hour == 9 and now.minute >= 30)):
     sys.exit()
 from requests_html import HTMLSession
 
@@ -34,7 +37,7 @@ hk2sh = r.json()['data']['hk2sh']['dayNetAmtIn'] / 10000
 # 深股通
 hk2sz = r.json()['data']['hk2sz']['dayNetAmtIn'] / 10000
 color = "red" if float(hk2sh + hk2sz) > 0 else "green"
-print('{:.2f} | color={}'.format(hk2sh + hk2sz, color))
+print('北向{:.2f} | color={}'.format(hk2sh + hk2sz, color))
 print('---')
 print('沪深港通资金流向详情 | href=http://data.eastmoney.com/hsgt/index.html')
 color = "red" if float(hk2sh) > 0 else "green"

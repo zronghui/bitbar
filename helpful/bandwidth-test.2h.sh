@@ -21,3 +21,5 @@ else
 fi
 
 echo "$OUTPUT"
+echo "---"
+echo "刷新... | refresh=true"
