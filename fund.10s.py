@@ -62,7 +62,7 @@ def updateFunds(funds):
 
 def colorNum(num):
     color = "red" if float(num) > 0 else "green"
-    return '{:.2f} | color={}'.format(num, color)
+    return '{:.2f} | color={}'.format(float(num), color)
 
 
 def printFundsStatus(funds):
@@ -74,7 +74,7 @@ def printFundsStatus(funds):
     print(f'income:{colorNum(allIncome)}')
     print('---')
     for k, v in funds.items():
-        print(f'{v["name"]}:{colorNum(v["income"])}')
+        print(f'{v["name"]}:{round(v["income"], 2)}  {colorNum(v["status"])}')
     print('基金详情 | href=http://data.eastmoney.com/hsgt/index.html')
     print("刷新... | refresh=true")
 
@@ -82,9 +82,11 @@ def printFundsStatus(funds):
 if __name__ == '__main__':
     valid_period()
     funds = {
-        '008087': {'name': '华夏 5g', 'money': 4900, 'status': 0, 'income': 0},
-        '519005': {'name': '海富通 ', 'money': 1500, 'status': 0, 'income': 0},
+        '008087': {'name': '华夏 5g', 'money': 5400, 'status': 0, 'income': 0},
+        '519005': {'name': '海富通 ', 'money': 2000, 'status': 0, 'income': 0},
+        '110022': {'name': '易方达消费 ', 'money': 4000, 'status': 0, 'income': 0},
         '003834': {'name': '华夏能源', 'money': 5000, 'status': 0, 'income': 0},
+        '040046': {'name': '华安纳斯达克', 'money': 2000, 'status': 0, 'income': 0},
         '519674': {'name': '银河创新', 'money': 100, 'status': 0, 'income': 0},
         '005911': {'name': '广发双擎', 'money': 100, 'status': 0, 'income': 0},
         '320007': {'name': '诺安成长', 'money': 100, 'status': 0, 'income': 0},
