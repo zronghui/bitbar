@@ -4,7 +4,6 @@
 持有/关注的基金的涨跌情况，及预计亏损/盈利
 """
 import datetime
-import time
 import sys
 
 import requests
@@ -73,6 +72,10 @@ def printFundsStatus(funds):
         allIncome += income
     print(f'income:{colorNum(allIncome)}')
     print('---')
+    sumMoney = sum(i["money"] for i in funds.values())
+    print(f'总金额 {sumMoney}')
+    print(f'盈亏百分比 {colorNum(100 * allIncome / sumMoney)}')
+    print('---')
     for k, v in funds.items():
         print(f'{v["name"]}:{round(v["income"], 2)}  {colorNum(v["status"])}')
     print('基金详情 | href=http://data.eastmoney.com/hsgt/index.html')
@@ -82,15 +85,23 @@ def printFundsStatus(funds):
 if __name__ == '__main__':
     valid_period()
     funds = {
-        '008087': {'name': '华夏 5g', 'money': 5400, 'status': 0, 'income': 0},
-        '519005': {'name': '海富通 ', 'money': 2000, 'status': 0, 'income': 0},
-        '110022': {'name': '易方达消费 ', 'money': 4000, 'status': 0, 'income': 0},
-        '003834': {'name': '华夏能源', 'money': 5000, 'status': 0, 'income': 0},
-        '040046': {'name': '华安纳斯达克', 'money': 2000, 'status': 0, 'income': 0},
-        '519674': {'name': '银河创新', 'money': 100, 'status': 0, 'income': 0},
-        '005911': {'name': '广发双擎', 'money': 100, 'status': 0, 'income': 0},
-        '320007': {'name': '诺安成长', 'money': 100, 'status': 0, 'income': 0},
-        '161725': {'name': '招商白酒', 'money': 100, 'status': 0, 'income': 0},
+        '161726': {'name': '招商医疗', 'money': 500, 'status': 0, 'income': 0},
+        '007874': {'name': '华宝科技 ETF', 'money': 1000, 'status': 0, 'income': 0},
+        '000961': {'name': '天弘沪深 300', 'money': 500, 'status': 0, 'income': 0},
+        '001593': {'name': '天弘创业板 ETF', 'money': 1487, 'status': 0, 'income': 0},
+        '004070': {'name': '南方中证证券', 'money': 500, 'status': 0, 'income': 0},
+        '163111': {'name': '申万菱信中小板', 'money': 500, 'status': 0, 'income': 0},
+        '005224': {'name': '广发中证基建', 'money': 500, 'status': 0, 'income': 0},
+        '320007': {'name': '诺安成长', 'money': 500, 'status': 0, 'income': 0},
+        '110022': {'name': '易方达消费 ', 'money': 1883, 'status': 0, 'income': 0},
+        '519005': {'name': '海富通 ', 'money': 1755, 'status': 0, 'income': 0},
+        '008087': {'name': '华夏 5g', 'money': 5067, 'status': 0, 'income': 0},
+        '040046': {'name': '华安纳斯达克', 'money': 1863, 'status': 0, 'income': 0},
+
+        '003834': {'name': '华夏能源', 'money': 0, 'status': 0, 'income': 0},
+        '519674': {'name': '银河创新', 'money': 0, 'status': 0, 'income': 0},
+        '005911': {'name': '广发双擎', 'money': 0, 'status': 0, 'income': 0},
+        '161725': {'name': '招商白酒', 'money': 0, 'status': 0, 'income': 0},
     }
     updateFunds(funds)
     printFundsStatus(funds)
