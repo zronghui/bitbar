@@ -70,7 +70,7 @@ def printFundsStatus(funds):
         income = v['money'] * float(v['status']) / 100
         v.update({'income': income})
         allIncome += income
-    print(f'income:{colorNum(allIncome)}')
+    print(f'{colorNum(allIncome)}')
     print('---')
     sumMoney = sum(i["money"] for i in funds.values())
     print(f'总金额 {sumMoney}')
@@ -112,7 +112,7 @@ if __name__ == '__main__':
         '110022': {'name': '易方达消费 ', 'money': 0, 'status': 0, 'income': 0},
         '003834': {'name': '华夏能源', 'money': 0, 'status': 0, 'income': 0},
         '519674': {'name': '银河创新', 'money': 0, 'status': 0, 'income': 0},
-        '161725': {'name': '招商白酒', 'money': 0, 'status': 0, 'income': 0},
+        '161725': {'name': '招商白酒', 'money': 500, 'status': 0, 'income': 0},
     }
     updateFunds(funds)
     printFundsStatus(funds)

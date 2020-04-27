@@ -37,7 +37,7 @@ hk2sh = r.json()['data']['hk2sh']['dayNetAmtIn'] / 10000
 # 深股通
 hk2sz = r.json()['data']['hk2sz']['dayNetAmtIn'] / 10000
 color = "red" if float(hk2sh + hk2sz) > 0 else "green"
-print('北向{:.2f} | color={}'.format(hk2sh + hk2sz, color))
+print('北{:.2f} | color={}'.format(hk2sh + hk2sz, color))
 print('---')
 print('沪深港通资金流向详情 | href=http://data.eastmoney.com/hsgt/index.html')
 color = "red" if float(hk2sh) > 0 else "green"
