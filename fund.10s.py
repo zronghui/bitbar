@@ -94,14 +94,16 @@ def printFundsStatus(funds):
 if __name__ == '__main__':
     valid_period()
     funds = {
-        '005911': {'name': '广发双擎', 'money': 500, 'status': 0, 'income': 0},
-        '005224': {'name': '广发中证基建', 'money': 968, 'status': 0, 'income': 0},
-        '320007': {'name': '诺安成长', 'money': 692, 'status': 0, 'income': 0},
-        '007301': {'name': '国联安半导体', 'money': 2000, 'status': 0, 'income': 0},
-        '004070': {'name': '南方中证证券', 'money': 1185, 'status': 0, 'income': 0},
-        '161028': {'name': '富国能源', 'money': 500, 'status': 0, 'income': 0},
-        '001593': {'name': '天弘创业板 ETF', 'money': 1500, 'status': 0, 'income': 0},
+        '005911': {'name': '广发双擎', 'money': 520, 'status': 0, 'income': 0},
+        '005224': {'name': '广发中证基建', 'money': 1076, 'status': 0, 'income': 0},
+        '320007': {'name': '诺安成长', 'money': 968, 'status': 0, 'income': 0},
+        '007301': {'name': '国联安半导体', 'money': 2993, 'status': 0, 'income': 0},
+        '004070': {'name': '南方中证证券', 'money': 4150, 'status': 0, 'income': 0},
+        '161028': {'name': '富国能源', 'money': 512, 'status': 0, 'income': 0},
+        '001593': {'name': '天弘创业板 ETF', 'money': 461, 'status': 0, 'income': 0},
         '007874': {'name': '华宝科技 ETF', 'money': 965, 'status': 0, 'income': 0},
+        '161720': {'name': '招商中证', 'money': 2000, 'status': 0, 'income': 0},
+        '161725': {'name': '招商白酒', 'money': 513, 'status': 0, 'income': 0},
 
         '161726': {'name': '招商医疗', 'money': 0, 'status': 0, 'income': 0},
         '000961': {'name': '天弘沪深 300', 'money': 0, 'status': 0, 'income': 0},
@@ -112,7 +114,6 @@ if __name__ == '__main__':
         '110022': {'name': '易方达消费 ', 'money': 0, 'status': 0, 'income': 0},
         '003834': {'name': '华夏能源', 'money': 0, 'status': 0, 'income': 0},
         '519674': {'name': '银河创新', 'money': 0, 'status': 0, 'income': 0},
-        '161725': {'name': '招商白酒', 'money': 500, 'status': 0, 'income': 0},
     }
     updateFunds(funds)
     printFundsStatus(funds)
