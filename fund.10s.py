@@ -36,7 +36,7 @@ def valid_period():
     if datetime.date.today().weekday() > 4:
         sys.exit()
     now = datetime.datetime.now()
-    if not 9 < now.hour < 16:
+    if not 9 <= now.hour <= 16:
         sys.exit()
 
 
