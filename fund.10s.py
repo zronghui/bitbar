@@ -63,6 +63,10 @@ def colorNum(num):
     color = "red" if float(num) > 0 else "green"
     return '{:.2f} | color={}'.format(float(num), color)
 
+def sortFund(f):
+    if f['money']:
+        return -f['money']
+    return float(f['status'])
 
 def printFundsStatus(funds):
     allIncome = 0
@@ -78,8 +82,9 @@ def printFundsStatus(funds):
     print('---')
     print('基金名 : 持有金额 : 盈亏金额 : 盈亏百分比')
     t = 0
-    for v in sorted(funds.values(), key=lambda i: -i['money']):
-        if not v['money'] and not t:
+
+    for v in sorted(funds.values(), key=sortFund):
+        if not (v['money'] or t):
             print('---')
             t += 1
         print(
@@ -94,25 +99,28 @@ def printFundsStatus(funds):
 if __name__ == '__main__':
     valid_period()
     funds = {
-        '005911': {'name': '广发双擎', 'money': 520, 'status': 0, 'income': 0},
-        '005224': {'name': '广发中证基建', 'money': 1076, 'status': 0, 'income': 0},
-        '320007': {'name': '诺安成长', 'money': 968, 'status': 0, 'income': 0},
-        '007301': {'name': '国联安半导体', 'money': 2993, 'status': 0, 'income': 0},
-        '004070': {'name': '南方中证证券', 'money': 4150, 'status': 0, 'income': 0},
-        '161028': {'name': '富国能源', 'money': 512, 'status': 0, 'income': 0},
-        '001593': {'name': '天弘创业板 ETF', 'money': 461, 'status': 0, 'income': 0},
-        '007874': {'name': '华宝科技 ETF', 'money': 965, 'status': 0, 'income': 0},
-        '161720': {'name': '招商中证', 'money': 2000, 'status': 0, 'income': 0},
-        '161725': {'name': '招商白酒', 'money': 513, 'status': 0, 'income': 0},
+         '005224': {'name': '广发中证基建', 'money': 2585, 'status': 0, 'income': 0},
+         '004070': {'name': '南方中证证券', 'money': 5076, 'status': 0, 'income': 0},
+         '161720': {'name': '招商中证', 'money': 2500, 'status': 0, 'income': 0},
+         '161725': {'name': '招商白酒', 'money': 1099, 'status': 0, 'income': 0},
+         '006098': {'name': '华宝券商', 'money': 496, 'status': 0, 'income': 0},
+         '003834': {'name': '华夏能源', 'money': 1000, 'status': 0, 'income': 0},
+         '161028': {'name': '富国能源', 'money': 1000, 'status': 0, 'income': 0},
+         '164402': {'name': '前海军工', 'money': 1000, 'status': 0, 'income': 0},
 
+        '320007': {'name': '诺安成长', 'money': 0, 'status': 0, 'income': 0},
+        '007301': {'name': '国联安半导体', 'money': 0, 'status': 0, 'income': 0},
         '161726': {'name': '招商医疗', 'money': 0, 'status': 0, 'income': 0},
+        '003096': {'name': '中欧医疗', 'money': 0, 'status': 0, 'income': 0},
+        '005911': {'name': '广发双擎', 'money': 0, 'status': 0, 'income': 0},
+        '001593': {'name': '天弘创业板 ETF', 'money': 0, 'status': 0, 'income': 0},
+        '007874': {'name': '华宝科技 ETF', 'money': 0, 'status': 0, 'income': 0},
         '000961': {'name': '天弘沪深 300', 'money': 0, 'status': 0, 'income': 0},
         '163111': {'name': '申万菱信中小板', 'money': 0, 'status': 0, 'income': 0},
         '519005': {'name': '海富通 ', 'money': 0, 'status': 0, 'income': 0},
         '040046': {'name': '华安纳斯达克', 'money': 0, 'status': 0, 'income': 0},
         '008087': {'name': '华夏 5g', 'money': 0, 'status': 0, 'income': 0},
         '110022': {'name': '易方达消费 ', 'money': 0, 'status': 0, 'income': 0},
-        '003834': {'name': '华夏能源', 'money': 0, 'status': 0, 'income': 0},
         '519674': {'name': '银河创新', 'money': 0, 'status': 0, 'income': 0},
     }
     updateFunds(funds)
